@@ -11,13 +11,16 @@ public abstract class Animal extends java.lang.Object {
     private boolean alive;
     private Coords position;
     private boolean gender;
+    private float mass;
+    private float fullness;
+    private float fillingRatio;
+    private Food[] diet;
 
-    abstract void eat();
+
     abstract void breath();
-    abstract void breed();
     // abstract Animal breed(Animal partner);
 
-    public <T extends Animal> T breed2(Animal partner){
+    public Animal breed(Animal partner){
         Class anim = partner.getClass();
         boolean sameAnimal = partner.getClass() == this.getClass();
         if(!sameAnimal) throw new Error("Not the same kind of animal!");
@@ -26,18 +29,15 @@ public abstract class Animal extends java.lang.Object {
             child = partner.getClass().getDeclaredConstructor().newInstance();
         }
         catch (Exception e){
-
+            return null;
         }
         finally {
             return child;
         }
     }
 
+    void eat(Food food){
 
-    Animal breed(Animal partner){
-        if(!(partner.getClass() == this.getClass())) throw new Error("Can't breed with this partner");
-        Pidgeon child = new Pidgeon();
-        return child;
     }
 
     public Animal(Coords position, boolean gender){
@@ -60,6 +60,39 @@ public abstract class Animal extends java.lang.Object {
         return alive;
     }
 
+    //region setters and getters
+    public Food[] getDiet() {
+        return diet;
+    }
+
+    public float getFillingRatio() {
+        return fillingRatio;
+    }
+
+    public Coords getPosition() {
+        return position;
+    }
+
+    public boolean isGender() {
+        return gender;
+    }
+
+    public float getMass() {
+        return mass;
+    }
+
+    public void setMass(float mass) {
+        this.mass = mass;
+    }
+
+    public float getFullness() {
+        return fullness;
+    }
+
+    public void setFullness(float fullness) {
+        this.fullness = fullness;
+    }
+
     public void setAlive(boolean alive) {
         this.alive = alive;
     }
@@ -80,6 +113,8 @@ public abstract class Animal extends java.lang.Object {
         this.parent = parent;
     }
 
+    //endregion
+
     public void die(){
         alive = false;
     }
@@ -97,14 +132,20 @@ public abstract class Animal extends java.lang.Object {
     void sleep(){
         System.out.println("Sleeping");
     }
-    void poop(){
-        System.out.println("Pooped");
+    Poop poop(){
+        return new Poop();
     }
 
     @Override
     public boolean equals(java.lang.Object obj) {
-        boolean bool1 =  age ==
-
-        return super.equals(obj);
+        Animal animal = null;
+        try{
+            animal = (Animal) obj;
+        }
+        catch (Exception e){
+            return false;
+        }
+        boolean bool1 = animal.age == age;
+        return bool1;
     }
 }

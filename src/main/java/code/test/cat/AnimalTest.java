@@ -18,6 +18,7 @@ public class AnimalTest {
     public void test_Animal_Breed(){
         Cat cat1 = new Cat();
         Cat cat2 = new Cat();
-        Animal baby = cat1.breed2(cat2);
+        Animal baby = cat1.breed(cat2);
+        Assertions.assertEquals(baby, new Cat());
     }
 }
