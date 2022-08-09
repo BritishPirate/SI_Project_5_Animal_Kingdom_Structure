@@ -6,6 +6,7 @@ import java.lang.Class.*;
 import java.util.Random;
 
 public abstract class Animal extends java.lang.Object {
+    //Sonar Check
     private int age;
     private Animal parent;
     private boolean alive;
