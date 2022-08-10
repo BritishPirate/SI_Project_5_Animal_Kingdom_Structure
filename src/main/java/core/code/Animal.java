@@ -38,7 +38,7 @@ public abstract class Animal extends java.lang.Object {
     }
 
     void eat(Food food){
-
+        fullness += food.getFillingLevel() * fillingRatio;
     }
 
     public Animal(Coords position, boolean gender){

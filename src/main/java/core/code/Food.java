@@ -5,5 +5,9 @@ public class Food {
 
     //region Getters and Setters
 
+    public float getFillingLevel() {
+        return fillingLevel;
+    }
+
     //endregion
 }
