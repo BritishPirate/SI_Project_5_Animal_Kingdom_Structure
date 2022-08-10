@@ -1,8 +1,5 @@
 package core.code;
 
-import java.lang.reflect.Modifier;
-import java.util.List;
-import java.lang.Class.*;
 import java.util.Random;
 
 public abstract class Animal extends java.lang.Object {
@@ -18,7 +15,7 @@ public abstract class Animal extends java.lang.Object {
     private Food[] diet;
 
 
-    abstract void breath();
+    abstract String breath();
     // abstract Animal breed(Animal partner);
 
     public Animal breed(Animal partner){
@@ -50,7 +47,10 @@ public abstract class Animal extends java.lang.Object {
         this(position, true);
         Random random = new Random();
         boolean randBool = random.nextBoolean();
+    }
 
+    public Animal(boolean gender){
+        this(new Coords(0, 0), gender);
     }
 
     public Animal(){
@@ -61,7 +61,8 @@ public abstract class Animal extends java.lang.Object {
         return alive;
     }
 
-    //region setters and getters
+    //region setters and getters ---------------------------------------------------------------
+
     public Food[] getDiet() {
         return diet;
     }
@@ -74,7 +75,7 @@ public abstract class Animal extends java.lang.Object {
         return position;
     }
 
-    public boolean isGender() {
+    public boolean getGender() {
         return gender;
     }
 
@@ -130,8 +131,8 @@ public abstract class Animal extends java.lang.Object {
         return position;
     }
 
-    void sleep(){
-        System.out.println("Sleeping");
+    String sleep(){
+        return "Sleeping";
     }
     Poop poop(){
         return new Poop();

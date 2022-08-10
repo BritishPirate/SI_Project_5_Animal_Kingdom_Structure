@@ -2,7 +2,11 @@ package core.code;
 
 public abstract class Bird extends Animal {
 
-    void breath(){
-        System.out.println("Breathing, core.code.Bird");
+    public Bird(Coords pos, boolean gender){
+        super(pos, gender);
+    }
+
+    String breath(){
+        return "Breathing, core.code.Bird";
     }
 }

@@ -1,12 +1,19 @@
 package core.code;
 
 public class Penguin extends Bird{
-
-    void eat() {
-        
+    public Penguin(){
+        this(new Coords());
     }
 
-    void sleep() {
-        System.out.println("Sleeping, core.code.Penguin");
+    public Penguin(Coords pos){
+        this(pos, false);
+    }
+
+    public Penguin(boolean gender){
+        this(new Coords(), gender);
+    }
+
+    public Penguin(Coords pos, boolean gender){
+        super(pos, gender);
     }
 }

@@ -1,7 +1,8 @@
 package core.code;
 
 public interface Flying {
-    abstract void takeOff();
-    abstract void flight();
-    abstract void landing();
+    abstract Coords takeOff();
+    abstract void flight(Coords distance);
+    abstract void flight(Coords direction, float distance);
+    abstract Coords landing();
 }
